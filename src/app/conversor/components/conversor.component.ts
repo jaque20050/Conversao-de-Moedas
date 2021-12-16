@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { throwError } from 'rxjs';
 
 import { Moeda, Conversao, ConversaoResponse } from '../models';
 import { MoedaService, ConversorService } from '../services';
@@ -40,9 +41,14 @@ export class ConversorComponent implements OnInit {
    * 
    * @return void
    */
-  converter(): void {
-    if (this.conversaoForm.form.valid) {
-      alert('Convertendo: ' + JSON.stringify(this.conversao));
-    }
+   converter(): void {
+  	if (this.conversaoForm.form.valid) {
+  	  this.conversorService
+        .converter(this.conversao)
+        .subscribe(
+          response => this.conversaoResponse = response,
+          error => this.possuiErro = true
+        );
+  	}
   }
 }
