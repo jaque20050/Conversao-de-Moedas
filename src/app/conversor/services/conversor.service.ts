@@ -11,7 +11,7 @@ import {
 export class ConversorService {
   // Nova url do fixer.io, que adiciona o parâmetro access_key, que é a chave de autenticação 
   //private readonly BASE_URL = "http://api.fixer.io/latest";
-  private readonly BASE_URL = "http://data.fixer.io/api/latest?access_key=eba7130a5b2d720ce43eb5fcddd47cc3";
+  private readonly BASE_URL = "http://data.fixer.io/api/latest?access_key=00ea386908a65e854d29f0b31ad8734b&format=1"
   constructor(private http: HttpClient) { }
   /**
    * Realiza a chamada para a API de conversão de moedas.
